@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { Button } from './Button';
+
+<Meta
+  title="Component/Button"
+  component={Button}
+  args={{
+   variant: 'primary',
+   size: 'medium',
+   label: 'Label'
+  }}
+/>
+
+# Button
+
+export const Template = (args) => <Button {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={Button} />
+
+<Canvas>
+  <Story
+    name="Secondary"
+    args={{
+        variant: 'secondary'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Small"
+    args={{
+        size: 'small'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Large"
+    args={{
+        size: 'large'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

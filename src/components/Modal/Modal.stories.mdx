@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { Content } from './Content';
+
+<Meta
+  title="Component/Modal"
+  component={Content}
+  args={{
+   title: 'Title',
+   children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+   handleOk: action('handleOk'),
+   handleClose: action('handleClose')
+  }}
+/>
+
+# ModalContent
+
+export const Template = (args) => <Content {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={Content} />

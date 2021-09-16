@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { Tabs } from './Tabs';
+
+<Meta
+  title="Component/Tabs"
+  component={Tabs}
+  decorators={[
+    (Story) => (
+      <div className="pt-16 lg:pt-8 px-6 md:px-12 lg:px-24">
+        {Story()}
+      </div>
+    ),
+  ]}
+  args={{
+        tabs: [
+            {
+                key: 'biography',
+                title: 'Biography',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            },
+            {
+                key: 'stats',
+                title: 'Stats',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            },
+            {
+                key: 'evolutions',
+                title: 'Evolutions',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            }
+        ],
+        handleSelect: action('handleSelect'),
+    }}
+/>
+
+# Tabs
+
+export const Template = (args) => <Tabs {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={Tabs} />

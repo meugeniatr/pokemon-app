@@ -1,0 +1,102 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { InfiniteScrollOfPokemonCards } from './InfiniteScrollOfPokemonCards';
+
+<Meta
+  title="UI/InfiniteScrollOfPokemonCards"
+  component={InfiniteScrollOfPokemonCards}
+  decorators={[
+        (Story) => (
+          <div className="px-2 md:px-24 lg:px-64 p-12">
+            {Story()}
+          </div>
+        ),
+    ]}
+  args={{
+        pokemons: [
+          {
+            id: 1,
+            name: "bulbasaur",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png",
+            types: [{ name: "grass" }, { name: "poison" }]
+          },
+          {
+            id: 2,
+            name: "ivysaur",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/002.png",
+            types: [{ name: "grass" }, { name: "poison" }]
+          },
+          {
+            id: 3,
+            name: "venusaur",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/003.png",
+            types: [{ name: "grass" }, { name: "poison" }]
+          },
+          {
+            id: 4,
+            name: "charmander",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/004.png",
+            types: [{ name: "fire" }]
+          },
+          {
+            id: 5,
+            name: "charmeleon",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/005.png",
+            types: [{ name: "fire" }]
+          },
+          {
+            id: 6,
+            name: "charizard",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/006.png",
+            types: [{ name: "fire" }, { name: "flying" }]
+          },
+          {
+            id: 7,
+            name: "squirtle",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/007.png",
+            types: [{ name: "water" }]
+          },
+          {
+            id: 8,
+            name: "wartortle",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/008.png",
+            types: [{ name: "water" }]
+          },
+          {
+            id: 9,
+            name: "blastoise",
+            image:
+              "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/009.png",
+            types: [{ name: "water" }]
+          },
+        ],
+        clickOnPokemonCard: action('clickOnPokemonCard'),
+        hasMore: true,
+        onLoadMore: action('onLoadMore')
+    }}
+/>
+
+# InfiniteScrollOfPokemonCards
+
+export const Template = (args) => <InfiniteScrollOfPokemonCards {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={InfiniteScrollOfPokemonCards} />

@@ -1,0 +1,43 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { PokemonGenerationCard } from './PokemonGenerationCard';
+
+<Meta
+  title="UI/PokemonGenerationCard"
+  component={PokemonGenerationCard}
+  decorators={[
+    (Story) => (
+      <div className="flex items-center justify-center">
+          <div className="w-full md:w-96 mt-5 mx-6 md:mx-0">
+            {Story()}
+          </div>
+      </div>
+    ),
+  ]}
+  args={{
+        images: [
+            "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png",
+            "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/004.png",
+            "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/007.png"
+          ],
+          generation: 1,
+          onClick: action('onClick')
+    }}
+/>
+
+# PokemonGenerationCard
+
+export const Template = (args) => <PokemonGenerationCard {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={PokemonGenerationCard} />

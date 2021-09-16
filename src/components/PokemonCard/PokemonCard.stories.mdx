@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { PokemonCard } from './PokemonCard';
+
+<Meta
+  title="UI/PokemonCard"
+  component={PokemonCard}
+  decorators={[
+      (Story) => (
+        <div className="flex items-center justify-center">
+            <div className="w-full md:w-96 mt-5 mx-6 md:mx-0">
+              {Story()}
+            </div>
+        </div>
+      ),
+  ]}
+  args={{
+        loading: false,
+        pokemon: {
+            id: 1,
+            name: "bulbasaur",
+            image: "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png",
+            types: [
+                { name: "grass", },
+                { name: "poison" }
+            ],
+        },
+        onClick: action('onClick')
+    }}
+/>
+
+# PokemonCard
+
+export const Template = (args) => <PokemonCard {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={PokemonCard} />
+
+# Skeleton
+
+<Canvas>
+  <Story
+    name="Skeleton"
+    parameters={{ actions: { disabled: true } }}
+    args={{
+        loading: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,112 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+
+import { PokemonDetails } from './PokemonDetails';
+
+<Meta
+  title="UI/PokemonDetails"
+  component={PokemonDetails}
+  args={{
+        loading: false,
+        pokemon: {
+            id: 1,
+            name: "bulbasaur",
+            kanjiName: "フシギダネ",
+            image: "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png",
+            types: [
+                { name: "grass", },
+                { name: "poison" }
+            ],
+            description: "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.",
+            growthRateName: "medium-slow",
+            species: "Seed Pokémon",
+            height: 7,
+            weight: 69,
+            genderRate: 1,
+            baseHappiness: 70,
+            captureRate: 45,
+            abilities: [
+                {
+                    name: "overgrow",
+                    isHidden: false
+                },
+                {
+                    name: "chlorophyll",
+                    isHidden: true
+                }
+            ],
+            baseExperience: 64,
+            stats: [
+               {
+                   title: "hp",
+                   min: 45,
+                   max: 294
+               },
+               {
+                   title: "attack",
+                   min: 49,
+                   max: 216.7
+               },
+               {
+                   title: "defense",
+                   min: 49,
+                   max: 216.7
+               },
+               {
+                   title: "Sp. Atk",
+                   min: 65,
+                   max: 251.9
+               },
+               {
+                   title: "Sp. Def",
+                   min: 65,
+                   max: 251.9
+               },
+               {
+                   title: "speed",
+                   min: 45,
+                   max: 207.9
+               }
+            ],
+            evolutions: [
+                {
+                    id: 1,
+                    name: "bulbasaur",
+                    image: "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/001.png",
+                    canEvolved: true
+                },
+                {
+                    id: 2,
+                    name: "ivysaur",
+                    image: "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/002.png",
+                    minLevel: 16,
+                    canEvolved: true
+                },
+                {
+                    id: 3,
+                    name: "venusaur",
+                    image: "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/003.png",
+                    minLevel: 32,
+                    canEvolved: false
+                }
+            ]
+        },
+        clickOnEvolution: action('clickOnEvolution')
+    }}
+/>
+
+# PokemonDetails
+
+export const Template = (args) => <PokemonDetails {...args} />;
+
+<Canvas>
+  <Story
+    name="With options"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+The available options:
+
+<ArgsTable of={PokemonDetails} />
